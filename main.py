@@ -1,6 +1,12 @@
 from tkinter import *
 import menu_bar
+import tool_bar
 
+# Colors to use
+color1 = '#FF9999'
+color2 = '#FFEBCC'
+color3 = '#FBFFE2'
+color4 = '#FFAFAF'
 
 class Application:
 
@@ -11,6 +17,7 @@ class Application:
         self.window.resizable(width=False, height=False)
 
         mb = menu_bar.MenuBar(self.window)
+        tb = tool_bar.ToolBar(self.window)
 
         self.window.mainloop()
 
