@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QWidget,QApplication,QMainWindow
 from PyQt5.QtGui import QIcon
 import menu_bar
+import tool_bar
 
 class HospitalMgmt():
 
@@ -17,6 +18,7 @@ class HospitalMgmt():
 
 
         menu_bar.MenuBar(window)
+        tool_bar.ToolBar(window)
 
         window.show()
         app.exec_()
