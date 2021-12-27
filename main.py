@@ -21,4 +21,5 @@ class HospitalMgmt():
         window.show()
         app.exec_()
 
+
 HospitalMgmt()
