@@ -8,9 +8,10 @@ class ToolBar:
     def __init__(self,parent):
         toolbar = QToolBar(parent)
         toolbar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        toolbar.setStyleSheet('QToolBar#toolbar{spacing:10px;} QAction{padding:120px;}')
         toolbar.setIconSize(QSize(50,50))
-        toolbar.set
         # icon_size = QSize()
+
 
         appointment = QAction(QIcon('./icons/schedule.png'), 'Appointment', parent)
         # appointment.setIconSize(QSize(50,50))
