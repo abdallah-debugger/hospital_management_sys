@@ -1,137 +1,93 @@
-import tkinter
+from PyQt5.QtWidgets import QAction
 
-class MenuBar:
-    def __init__(self,window):
-        # Create and display the main menu bar
-        menuBar = tkinter.Menu(window,background='blue',fg='red')
-        # menuBar.config()
+class MenuBar():
 
+    def __init__(self,parent):
+        bar = parent.menuBar()
 
         # System Menu
-        systemMenu = tkinter.Menu(menuBar, tearoff=False)
-        systemMenu.add_command(label="Show / Hide Shortcut Menu")
-        systemMenu.add_command(label="Lock")
-        systemMenu.add_command(label="Log Off")
-        systemMenu.add_command(label="Exit")
-        menuBar.add_cascade(menu=systemMenu, label="System")
+        system = bar.addMenu("System")
 
-        # Wale's Clinic Options Menu
-        clinicOptionsMenu = tkinter.Menu(menuBar, tearoff=False)
-        # General submenu
-        generalSub = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        generalSub.add_command(label='General Settings')
-        generalSub.add_command(label='OP Settings Master')
-        generalSub.add_command(label='General Voucher')
-        generalSub.add_command(label='Work Shop Form')
-        generalSub.add_command(label='Photo Scanning Utility')
-        clinicOptionsMenu.add_cascade(menu=generalSub, label='General')
+        hide = QAction('Show/Hide Shortcut',parent)
+        hide.setShortcut('Ctrl+F12')
+        system.addAction(hide)
 
-        # Patients Information submenu
-        patientsInfo = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        patientsInfo.add_command(label='Patient Registration')
-        patientsInfo.add_command(label='Patient Info Sheet')
-        patientsInfo.add_command(label='Patients Deposit Register')
-        clinicOptionsMenu.add_cascade(menu=patientsInfo, label='Patients Information')
+        lock = QAction('Lock',parent)
+        lock.setShortcut('Ctrl+F7')
+        system.addAction(lock)
 
-        # Outpatient Department Submenu
-        outPatient = tkinter.Menu(clinicOptionsMenu,tearoff=False)
-        outPatient.add_command(label='OP Register')
-        outPatient.add_command(label='Discharge Register')
-        outPatient.add_command(label='Followup Visit Register')
-        outPatient.add_command(label='Patient Diagnosis Register')
-        outPatient.add_command(label='Patient Diagnosis Details')
-        outPatient.add_command(label='Doctors Comments and Recommendations')
-        outPatient.add_command(label='Patient Prescription Details')
-        outPatient.add_command(label='Patient Transaction')
-        outPatient.add_command(label='Patient Transaction Utility')
-        outPatient.add_command(label='Medical Record Management')
-        clinicOptionsMenu.add_cascade(menu=outPatient,label='Outpatient Department')
+        log_off = QAction('Log off',parent)
+        log_off.setShortcut('Ctrl+F9')
+        system.addAction(log_off)
 
-        # Inpatient Department Submenu
-        inPatient = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        inPatient.add_command(label='Inpatient Registration')
-        clinicOptionsMenu.add_cascade(menu=inPatient, label='Inpatient Department')
+        quit = QAction('Exit',parent)
+        quit.setShortcut('Ctrl+F8')
+        system.addAction(quit)
 
-        # Masters Submenu
-        masters = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        masters.add_command(label='Service Master')
-        masters.add_command(label='Account Head Register')
-        masters.add_command(label='Expense Master')
-        masters.add_command(label='Diagnosis Master')
-        masters.add_command(label='Investigation Master')
-        masters.add_command(label='Doctor Specialization Master')
-        masters.add_command(label='Resource Master')
-        clinicOptionsMenu.add_cascade(menu=masters, label='Masters')
+        # Walz_Options Menu
+        walz_options = bar.addMenu("Walz Clinic Options")
 
-        # Account Submenu
-        account = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        account.add_command(label='Patient Billings')
-        clinicOptionsMenu.add_cascade(menu=account, label='Account')
-
-        # Reports Submenu
-        reports = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        reports.add_command(label='Reports')
-        reports.add_command(label='Account Reports')
-        clinicOptionsMenu.add_cascade(menu=reports, label='Reports')
-
-        # Administration Submenu
-        administration = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        administration.add_command(label='Company Profile Settings')
-        administration.add_command(label='Branch Profile Settings')
-        administration.add_command(label='User Rights Assignment')
-        administration.add_command(label='Prescription Template Master')
-        administration.add_command(label='Expense Charge Settings')
-        clinicOptionsMenu.add_cascade(menu=administration, label='Administration')
-
-        # Appointments Submenu
-        appointments = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        appointments.add_command(label='Appointments')
-        appointments.add_command(label='Appointments Visit Register')
-        clinicOptionsMenu.add_cascade(menu=appointments, label='Appointments')
-
-        # Employee Information
-        empInfo = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        empInfo.add_command(label='Employee Registration')
-        empInfo.add_command(label='Employee Account Master')
-        empInfo.add_command(label='Bank Master')
-        empInfo.add_command(label='Bank Account Register')
-        empInfo.add_command(label='Bank Account Transaction')
-        empInfo.add_command(label='Employee Designation Master')
-        empInfo.add_command(label='Employee Shift Master')
-        empInfo.add_command(label='Employee Account Transaction')
-        empInfo.add_command(label='User Maintenance')
-        empInfo.add_command(label='Employee Attendance Register')
-        clinicOptionsMenu.add_cascade(menu=empInfo, label='Employee Information')
-
-        # Doctor Details Submenu
-        doctorDetails = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        doctorDetails.add_command(label='Doctor Master')
-        doctorDetails.add_command(label='Doctor Duty Timings Register')
-        doctorDetails.add_command(label='Doctor Leave Register')
-        doctorDetails.add_command(label='Refer In Doctor Master')
-        clinicOptionsMenu.add_cascade(menu=doctorDetails, label='Doctor Details')
-
-        # Insurance Section Submenu
-        insuranceSection = tkinter.Menu(clinicOptionsMenu, tearoff=False)
-        insuranceSection.add_command(label='Insurance Claim')
-        insuranceSection.add_command(label='Insurance Master')
-        clinicOptionsMenu.add_cascade(menu=insuranceSection, label='Insurance Section')
-        menuBar.add_cascade(menu=clinicOptionsMenu, label="Wale's Clinic Options")
-
-        # Utitlty Menu
-        utilityMenu = tkinter.Menu(menuBar, tearoff=False)
-        utilityMenu.add_command(label='Password Management')
-        menuBar.add_cascade(menu=utilityMenu, label='Utility')
-
-        # About Menu
-        aboutMenu = tkinter.Menu(menuBar, tearoff=False)
-        aboutMenu.add_command(label='About')
-        aboutMenu.add_command(label='Help')
-        aboutMenu.add_command(label='Update')
-        menuBar.add_cascade(menu=aboutMenu, label='About/Help')
-
-        # Exit Menu
-        menuBar.add_command(label='Exit',command=window.quit)
+        general = walz_options.addMenu('General')
+        general_settings = QAction('General Setting',parent)
+        general.addAction(general_settings)
+        general_master = QAction('OP Settings Master',parent)
+        general.addAction(general_master)
+        general_voucher = QAction('General Voucher',parent)
+        general.addAction(general_voucher)
+        general_workshop = QAction('Work Shop Form',parent)
+        general.addAction(general_workshop)
+        general_scanning = QAction('Photo Scanning Utility',parent)
+        general.addAction(general_scanning)
 
 
-        window.config(menu=menuBar)
+        patient_info = walz_options.addMenu('Patient Information')
+
+        # Walz_Options - Out Patient
+        o_patient_dept = walz_options.addMenu('Out-Patient Department')
+
+        op_register = QAction('OP Register', parent)
+        o_patient_dept.addAction(op_register)
+
+        op_discharge = QAction('Discharge Register', parent)
+        o_patient_dept.addAction(op_discharge)
+
+        op_followup = QAction('Follow-up Visit Register', parent)
+        o_patient_dept.addAction(op_followup)
+
+        op_diagnosis = QAction('Patient Diagnosis Details', parent)
+        o_patient_dept.addAction(op_diagnosis)
+
+        op_recommendation = QAction('Doctors Comments And Recommendation', parent)
+        o_patient_dept.addAction(op_recommendation)
+
+        op_prescription = QAction('Patient Prescription Details', parent)
+        o_patient_dept.addAction(op_prescription)
+
+        op_transaction = QAction('Patient Transaction', parent)
+        o_patient_dept.addAction(op_transaction)
+
+        op_utility = QAction('Patient Transaction Utility', parent)
+        o_patient_dept.addAction(op_utility)
+
+        op_record = QAction('Medical Record Management', parent)
+        o_patient_dept.addAction(op_record)
+
+
+        # Walz_Options - In Patient
+        i_patient_dept = walz_options.addMenu('In-Patient Department')
+        ip_register = QAction('Inpatient Registration',parent)
+        i_patient_dept.addAction(ip_register)
+
+        # Walz_Options - Master
+        masters = walz_options.addMenu('Masters')
+        accounts = walz_options.addMenu('Accounts')
+        reports = walz_options.addMenu('Reports')
+        admin = walz_options.addMenu('Administration')
+        appointments = walz_options.addMenu('Appointments')
+        emp_info = walz_options.addMenu('Employee Information')
+        doctor_details = walz_options.addMenu('Doctor Details')
+        insurance_sec = walz_options.addMenu('Insurance Section')
+
+        utility = bar.addMenu("Utility")
+        about = bar.addMenu("About/Help")
+        exit = bar.addMenu("Exit")

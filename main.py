@@ -1,24 +1,24 @@
-from tkinter import *
+import sys
+from PyQt5.QtWidgets import QWidget,QApplication,QMainWindow
+from PyQt5.QtGui import QIcon
 import menu_bar
-import tool_bar
 
-# Colors to use
-color1 = '#FF9999'
-color2 = '#FFEBCC'
-color3 = '#FBFFE2'
-color4 = '#FFAFAF'
-
-class Application:
+class HospitalMgmt():
 
     def __init__(self):
-        self.window = Tk()
-        self.window.title = 'Hospital Management System'
-        self.window.geometry('1500x820+0+0')
-        self.window.resizable(width=False, height=False)
+        app = QApplication(sys.argv)
 
-        mb = menu_bar.MenuBar(self.window)
-        tb = tool_bar.ToolBar(self.window)
+        # Window formating
+        window = QMainWindow()
+        window.setWindowTitle('Walz Hospital Mangement System')
+        window.setWindowIcon(QIcon('./icons/clinic.png'))
 
-        self.window.mainloop()
+        # window.setGeometry(200,200,300,200)
 
-Application()
+
+        menu_bar.MenuBar(window)
+
+        window.show()
+        app.exec_()
+
+HospitalMgmt()
