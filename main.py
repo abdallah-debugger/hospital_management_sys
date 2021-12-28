@@ -5,6 +5,7 @@ import menu_bar
 import tool_bar
 import side_menu
 import tabs_area
+import status_bar
 
 class HospitalMgmt():
 
@@ -30,7 +31,7 @@ class HospitalMgmt():
         window.setCentralWidget(centralwidget)
 
         tabs_area.TabsArea(centralwidget,gridLayout)
-
+        status_bar.StatusBar(window)
 
         window.show()
         app.exec_()

@@ -8,7 +8,7 @@ class ToolBar:
     def __init__(self,parent):
         toolbar = QToolBar(parent)
         toolbar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-        toolbar.setStyleSheet('QToolBar#toolbar{spacing:10px;} QAction{padding:120px;}')
+        toolbar.setStyleSheet('QToolBar#toolbar{padding:20px;} QToolBar QToolButton{padding-left: 20px;padding-right: 20px;}')
         toolbar.setIconSize(QSize(50,50))
         # icon_size = QSize()
 
