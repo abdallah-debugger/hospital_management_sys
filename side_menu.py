@@ -1,81 +1,63 @@
+from PyQt5 import Qt, QtCore
+from PyQt5.QtCore import QSize, QCoreApplication
 from PyQt5.QtWidgets import *
 import sys
 
 
 class SideMenu():
-    def __init__(self, parent):
-        super().__init__()
+    def __init__(self, parent,layout):
+        self.left_menu_Tree = QTreeWidget(parent)
+        self.left_menu_Tree.setMinimumSize(QtCore.QSize(200, 0))
+        self.left_menu_Tree.setMaximumSize(QtCore.QSize(300, 16777215))
+        self.left_menu_Tree.setStyleSheet("QTreeWidget{\n"
+                                          "    border: None;\n"
+                                          "}")
+        self.left_menu_Tree.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.left_menu_Tree.setObjectName("left_menu_Tree")
+        item_0 = QTreeWidgetItem(self.left_menu_Tree)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_0 = QTreeWidgetItem(self.left_menu_Tree)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_0 = QTreeWidgetItem(self.left_menu_Tree)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        item_1 = QTreeWidgetItem(item_0)
+        layout.addWidget(self.left_menu_Tree, 1, 0, 1, 1)
 
-        # set the title of main window
-        # self.setWindowTitle('Sidebar layout - www.luochang.ink')
-
-        # set the size of window
-        self.Width = 800
-        self.height = int(0.618 * self.Width)
-        parent.resize(self.Width, self.height)
-
-        # add all widgets
-        self.btn_1 = QPushButton('1', parent)
-        self.btn_2 = QPushButton('2', parent)
-        self.btn_3 = QPushButton('3', parent)
-        self.btn_4 = QPushButton('4', parent)
-
-        left_layout = QVBoxLayout()
-        left_layout.addWidget(self.btn_1)
-        left_layout.addWidget(self.btn_2)
-        left_layout.addWidget(self.btn_3)
-        left_layout.addWidget(self.btn_4)
-        left_layout.addStretch(5)
-        left_layout.setSpacing(20)
-        left_widget = QWidget()
-        left_widget.setLayout(left_layout)
-
-        self.right_widget = QTabWidget()
-        self.right_widget.tabBar().setObjectName("mainTab")
-
-        main_layout = QHBoxLayout()
-        main_layout.addWidget(left_widget)
-        main_layout.addWidget(self.right_widget)
-        main_layout.setStretch(0, 40)
-        main_layout.setStretch(1, 200)
-        main_widget = QWidget()
-        main_widget.setLayout(main_layout)
-        parent.setCentralWidget(main_widget)
-
-        # def ui1():
-        #     main_layout = QVBoxLayout()
-        #     main_layout.addWidget(QLabel('page 1'))
-        #     main_layout.addStretch(5)
-        #     main = QWidget()
-        #     main.setLayout(main_layout)
-        #     return main
-        #
-        # def ui2():
-        #     main_layout = QVBoxLayout()
-        #     main_layout.addWidget(QLabel('page 2'))
-        #     main_layout.addStretch(5)
-        #     main = QWidget()
-        #     main.setLayout(main_layout)
-        #     return main
-        #
-        # def ui3():
-        #     main_layout = QVBoxLayout()
-        #     main_layout.addWidget(QLabel('page 3'))
-        #     main_layout.addStretch(5)
-        #     main = QWidget()
-        #     main.setLayout(main_layout)
-        #     return main
-        #
-        # def ui4():
-        #     main_layout = QVBoxLayout()
-        #     main_layout.addWidget(QLabel('page 4'))
-        #     main_layout.addStretch(5)
-        #     main = QWidget()
-        #     main.setLayout(main_layout)
-        #     return main
-        #
-        # # add tabs
-        # self.tab1 = ui1()
-        # self.tab2 = ui2()
-        # self.tab3 = ui3()
-        # self.tab4 = ui4()
+        _translate = QtCore.QCoreApplication.translate
+        self.left_menu_Tree.headerItem().setText(0, _translate("MainWindow", "School"))
+        __sortingEnabled = self.left_menu_Tree.isSortingEnabled()
+        self.left_menu_Tree.setSortingEnabled(False)
+        self.left_menu_Tree.topLevelItem(0).setText(0, _translate("MainWindow", "School Items"))
+        self.left_menu_Tree.topLevelItem(0).child(0).setText(0, _translate("MainWindow", "Ruler"))
+        self.left_menu_Tree.topLevelItem(0).child(1).setText(0, _translate("MainWindow", "Pencil"))
+        self.left_menu_Tree.topLevelItem(0).child(2).setText(0, _translate("MainWindow", "Biro"))
+        self.left_menu_Tree.topLevelItem(0).child(3).setText(0, _translate("MainWindow", "Eraser"))
+        self.left_menu_Tree.topLevelItem(0).child(4).setText(0, _translate("MainWindow", "Divider"))
+        self.left_menu_Tree.topLevelItem(0).child(5).setText(0, _translate("MainWindow", "Mathset"))
+        self.left_menu_Tree.topLevelItem(1).setText(0, _translate("MainWindow", "School Members"))
+        self.left_menu_Tree.topLevelItem(1).child(0).setText(0, _translate("MainWindow", "Cleaners"))
+        self.left_menu_Tree.topLevelItem(1).child(1).setText(0, _translate("MainWindow", "Teacher"))
+        self.left_menu_Tree.topLevelItem(1).child(2).setText(0, _translate("MainWindow", "Security"))
+        self.left_menu_Tree.topLevelItem(1).child(3).setText(0, _translate("MainWindow", "Head master"))
+        self.left_menu_Tree.topLevelItem(1).child(4).setText(0, _translate("MainWindow", "Baddo"))
+        self.left_menu_Tree.topLevelItem(2).setText(0, _translate("MainWindow", "School Facilites"))
+        self.left_menu_Tree.topLevelItem(2).child(0).setText(0, _translate("MainWindow", "Swings"))
+        self.left_menu_Tree.topLevelItem(2).child(1).setText(0, _translate("MainWindow", "Toilets"))
+        self.left_menu_Tree.topLevelItem(2).child(2).setText(0, _translate("MainWindow", "Labs"))
+        self.left_menu_Tree.topLevelItem(2).child(3).setText(0, _translate("MainWindow", "Storage"))
+        self.left_menu_Tree.topLevelItem(2).child(4).setText(0, _translate("MainWindow", "Computer Lab"))
+        self.left_menu_Tree.topLevelItem(2).child(5).setText(0, _translate("MainWindow", "Home Econmic Lab"))
+        self.left_menu_Tree.setSortingEnabled(__sortingEnabled)

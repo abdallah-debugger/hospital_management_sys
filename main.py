@@ -1,9 +1,10 @@
 import sys
-from PyQt5.QtWidgets import QWidget,QApplication,QMainWindow
+from PyQt5.QtWidgets import QWidget, QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QGridLayout
 from PyQt5.QtGui import QIcon
 import menu_bar
 import tool_bar
 import side_menu
+import tabs_area
 
 class HospitalMgmt():
 
@@ -13,14 +14,23 @@ class HospitalMgmt():
         # Window formating
         window = QMainWindow()
         window.setWindowTitle('Walz Hospital Mangement System')
+        window.resize(897, 726)
         window.setWindowIcon(QIcon('./icons/clinic.png'))
 
         # window.setGeometry(200,200,300,200)
-
+        centralwidget = QWidget(window)
+        gridLayout = QGridLayout()
+        verticalLayout = QVBoxLayout(centralwidget)
 
         menu_bar.MenuBar(window)
         tool_bar.ToolBar(window)
-        side_menu.SideMenu(window)
+
+        side_menu.SideMenu(centralwidget,gridLayout)
+        verticalLayout.addLayout(gridLayout)
+        window.setCentralWidget(centralwidget)
+
+        tabs_area.TabsArea(centralwidget,gridLayout)
+
 
         window.show()
         app.exec_()
