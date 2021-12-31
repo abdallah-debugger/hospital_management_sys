@@ -11,6 +11,7 @@ class StatusBar:
         user = 'Walz Admin'
         user_label = QLabel(f'User: {user}')
         self.statusbar.addPermanentWidget(user_label,stretch=1)
+        # user_label.setStyleSheet('QLabel{padding-left:10px;padding-bottom:10px}')
 
         user_mode = 'Administrator'
         mode_label = QLabel(f'Mode: {user_mode}')
@@ -24,4 +25,4 @@ class StatusBar:
         time_label = QLabel(f'System Time: {time}')
         self.statusbar.addPermanentWidget(time_label,stretch=1)
 
-        # self.statusbar.setStyleSheet('QStatusBar{padding:15px;}')
+        self.statusbar.setStyleSheet('QLabel{padding-left:10px;padding-bottom:10px}')
